@@ -1,0 +1,42 @@
+<mvc:View controllerName="sampleApplication.controller.Bookings"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	core:require="{
+		formatter: 'sampleApplication/model/formatter'
+	}">
+
+	<!-- <Table id="bookingTable" items="{bookingModel>/YourEntitySet}">
+		<columns>
+			 <Column>
+					<Text text="User ID"/>
+			 </Column>
+			 <Column>
+					<Text text="Room"/>
+			 </Column>
+			 <Column>
+					<Text text="Desk"/>
+			 </Column>
+			 <Column>
+					<Text text="Time From"/>
+			 </Column>
+			 <Column>
+					<Text text="Time To"/>
+			 </Column>
+
+		</columns>
+		<items>
+			 <ColumnListItem>
+					<cells>
+						 <Text text="{bookingModel>UserID}"/>
+						 <Text text="{bookingModel>Room}"/>
+						 <Text text="{bookingModel>Desk}"/>
+						 <Text text="{bookingModel>TimeFrom}"/>
+						 <Text text="{bookingModel>TimeTo}"/>
+					</cells>
+			 </ColumnListItem>
+		</items>
+ </Table> -->
+
+</mvc:View>

@@ -1,0 +1,22 @@
+<mvc:View controllerName="sampleApplication.controller.Content"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	core:require="{
+		formatter: 'sampleApplication/model/formatter'
+	}">
+
+	<Button text="Add Text" press="addNewContent" />
+
+	<Button text="Back" press="onBackButtonPress" />
+	<List id="contentList" items="{content>/}" mode="None" headerText="Content Data">
+		<items>
+			<StandardListItem
+				title="{content>ContentId}"
+				description="{content>Content}"
+			/>
+		</items>
+	</List>
+
+</mvc:View>

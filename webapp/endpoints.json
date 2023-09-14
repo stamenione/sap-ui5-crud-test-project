@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "ab4a995f-428a-44a5-807e-bcc93caf91b9",
+		"name": "ZNV_ODATA_CONTENT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15705090"
+	},
+	"item": [
+		{
+			"name": "Get Entity Set",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-CSRF-Token",
+						"value": "fetch",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://amenti.js-soft.local:44300/sap/opu/odata/SAP/ZNV_ODATA_CONTENT_SRV/OData_ContentSet",
+					"protocol": "https",
+					"host": [
+						"amenti",
+						"js-soft",
+						"local"
+					],
+					"port": "44300",
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"SAP",
+						"ZNV_ODATA_CONTENT_SRV",
+						"OData_ContentSet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Entity",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://amenti.js-soft.local:44300/sap/opu/odata/SAP/ZNV_ODATA_CONTENT_SRV/OData_ContentSet('CONT0002')",
+					"protocol": "https",
+					"host": [
+						"amenti",
+						"js-soft",
+						"local"
+					],
+					"port": "44300",
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"SAP",
+						"ZNV_ODATA_CONTENT_SRV",
+						"OData_ContentSet('CONT0002')"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRF-Token",
+						"value": "OLOnVxHnK7pk6SL7e6tcRQ==",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ContentId\": \"CONT0011\",\n    \"Content\": \"Msg Content\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://amenti.js-soft.local:44300/sap/opu/odata/SAP/ZNV_ODATA_CONTENT_SRV/OData_ContentSet",
+					"protocol": "https",
+					"host": [
+						"amenti",
+						"js-soft",
+						"local"
+					],
+					"port": "44300",
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"SAP",
+						"ZNV_ODATA_CONTENT_SRV",
+						"OData_ContentSet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-CSRF-Token",
+						"value": "OLOnVxHnK7pk6SL7e6tcRQ==",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://amenti.js-soft.local:44300/sap/opu/odata/SAP/ZNV_ODATA_CONTENT_SRV/OData_ContentSet('CONT0009')",
+					"protocol": "https",
+					"host": [
+						"amenti",
+						"js-soft",
+						"local"
+					],
+					"port": "44300",
+					"path": [
+						"sap",
+						"opu",
+						"odata",
+						"SAP",
+						"ZNV_ODATA_CONTENT_SRV",
+						"OData_ContentSet('CONT0009')"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

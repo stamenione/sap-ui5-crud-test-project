@@ -1,0 +1,19 @@
+<mvc:View controllerName="sampleApplication.controller.Main"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core" async="true" core:require="{
+		formatter: 'sampleApplication/model/formatter'
+	}">
+
+
+	<Page title="Master view">
+		<content>
+			<VBox >
+				<Label text="Welcome to the Main view !" />
+				<Button text="Navigate to the first view" press="onPressFirst" />
+			</VBox>
+		</content>
+	</Page>
+
+</mvc:View>
