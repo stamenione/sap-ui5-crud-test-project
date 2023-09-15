@@ -8,7 +8,7 @@ import Button from "sap/m/Button";
 import Input from "sap/m/Input";
 import Text from "sap/m/Text";
 
-import deleteItem from "../helpers/handleOnItemPress";
+import deleteItem from "../helpers/handleDeleteItem";
 
 
 interface Content {
