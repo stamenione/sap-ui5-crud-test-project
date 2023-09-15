@@ -3,8 +3,13 @@ import JSONModel from "sap/ui/model/json/JSONModel";
 import StandardListItem from "sap/m/StandardListItem";
 import List from "sap/m/List";
 import ODataModel from "sap/ui/model/odata/v2/ODataModel";
+import Dialog from "sap/m/Dialog";
+import Button from "sap/m/Button";
+import Input from "sap/m/Input";
+import Text from "sap/m/Text";
 
-import onListItemPress from "../helpers/onListItemPress";
+import deleteItem from "../helpers/handleOnItemPress";
+
 
 interface Content {
 	ContentId: string,
@@ -15,7 +20,6 @@ interface Content {
  * @namespace sampleApplication.controller
  */
 export default class ContentController extends BaseController {
-
 	async onInit(): Promise<void> {
 		try {
 			const oView = this.getView();
@@ -34,13 +38,14 @@ export default class ContentController extends BaseController {
 					oList.bindAggregation("items", {
 						path: "content>/",
 						template: new StandardListItem({
+							//Sets the list item to be pressable
 							type: "Active",
 							title: "{content>ContentId}",
+							//Handles the press event
 							press(oEvent) {
-								onListItemPress(oEvent,oModel);
+								deleteItem(oEvent, oModel);
 							},
 							description: "{content>Content}",
-
 						}),
 					});
 				} catch (oError) {
@@ -57,12 +62,60 @@ export default class ContentController extends BaseController {
 	}
 
 	addNewContent() {
+		const contentIdInput = new Input({
+			placeholder: "Content ID",
+			value: ""
+		  });
+	  
+		const contentInput = new Input({
+			placeholder: "Content",
+			value: ""
+		  });
 		const oView = this.getView();
 
 		const oModel = oView.getModel() as ODataModel;
 
-		oModel.createEntry("/OData_ContentSet", { properties: { ContentId: "CONT0002", Content: "It works" } });
-		oModel.submitChanges();
+		const oDialog = new Dialog({
+			title:"Add Content",
+			content: [ new Text({text:"Your Content Id should look like this: CONT0000"})
+						,contentIdInput, contentInput],
+			beginButton: new Button({
+				text: "Submit",
+				press: () => {
+					const contentId = contentIdInput.getValue();
+					const content = contentInput.getValue();
+
+					const newEntry = {
+						ContentId: contentId,
+						Conent: content
+					}
+
+					oModel.createEntry("/OData_ContentSet", {
+						properties: newEntry,
+						success: () => {
+							oModel.submitChanges({
+								success: () => {
+									// Once changes are successfully submitted, close and destroy the dialog
+									oDialog.close();
+									oDialog.destroy();
+									location.reload();
+								}
+							})
+						}
+					})
+				}
+			}),
+			endButton: new Button({
+				text: "Cancel",
+				press:() => {
+					oDialog.close();
+					oDialog.destroy();
+				}
+			}),
+		});
+
+		// Open the dialog
+		oDialog.open();
 	}
 
 	private fetchContent(oModel: ODataModel): Promise<Content[]> {
