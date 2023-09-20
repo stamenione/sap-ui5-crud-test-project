@@ -7,11 +7,11 @@
 	}">
 
 
-	<Page title="Master view">
+	<Page title="Main view">
 		<content>
 			<VBox >
 				<Label text="Welcome to the Main view !" />
-				<Button text="Navigate to the first view" press="onPressFirst" />
+				<Button text="Go to the data" press="onDataNavigate" />
 			</VBox>
 		</content>
 	</Page>

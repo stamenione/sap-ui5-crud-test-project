@@ -87,22 +87,18 @@ export default class ContentController extends BaseController {
 
 					const newEntry = {
 						ContentId: contentId,
-						Conent: content
+						Content: content 
 					}
+					
 
 					oModel.createEntry("/OData_ContentSet", {
-						properties: newEntry,
-						success: () => {
-							oModel.submitChanges({
-								success: () => {
-									// Once changes are successfully submitted, close and destroy the dialog
-									oDialog.close();
-									oDialog.destroy();
-									location.reload();
-								}
-							})
-						}
+						properties: newEntry
 					})
+
+					oModel.submitChanges()
+
+					oDialog.close();
+					oDialog.destroy();
 				}
 			}),
 			endButton: new Button({
