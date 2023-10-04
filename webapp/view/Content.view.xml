@@ -12,7 +12,7 @@
 	<Button text="Back" press="onBackButtonPress" />
 	<List id="contentList" items="{content>/}" mode="None" headerText="Content Data">
 		<items>
-			<StandardListItem/>
+			<CustomListItem />
 		</items>
 	</List>
 

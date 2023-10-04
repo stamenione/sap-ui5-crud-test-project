@@ -79,7 +79,12 @@
 				{
 					"pattern": "Content",
 					"name": "Content",
-					"target": "firstPage"
+					"target": "contentView"
+				},
+				{
+					"pattern": "content-display/{contentid}",
+					"name" : "ContentDisplay",
+					"target": "contentDisplayView"
 				}
 			],
 			"targets": {
@@ -88,8 +93,11 @@
 					"viewName": "Main",
 					"viewType": "XML"
 				},
-				"firstPage": {
+				"contentView": {
 					"viewName": "Content",
+					"viewType": "XML"
+				},"contentDisplayView": {
+					"viewName": "ContentDisplay",
 					"viewType": "XML"
 				}
 			}
